@@ -1,6 +1,9 @@
 local M = {}
 
 function M.setup()
+    -- Indicate first time installation
+  local packer_bootstrap = false
+
   local conf = {
     profile = {
       enable = true,
@@ -13,18 +16,23 @@ function M.setup()
     }
   }
 
-  local function ensure_packer()
-    local bootstrap = false
-
+  -- Check if packer.nvim is installed
+  -- Run PackerCompile if there are changes in this file
+  local function packer_init()
     local fn = vim.fn
-    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+    local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
     if fn.empty(fn.glob(install_path)) > 0 then
-      fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+      packer_bootstrap = fn.system {
+        "git",
+        "clone",
+        "--depth",
+        "1",
+        "https://github.com/wbthomason/packer.nvim",
+        install_path,
+      }
       vim.cmd [[packadd packer.nvim]]
-      bootstrap = true
     end
     vim.cmd "autocmd BufWritePost plugins.lua source <afile> | PackerCompile"
-    return bootstrap
   end
 
   local function plugins(use)
@@ -158,12 +166,13 @@ function M.setup()
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
-    local packer_bootstrap = ensure_packer()
     if packer_bootstrap then
-      require('packer').sync()
+      print "Restart Neovim required after installation!"
+      require("packer").sync()
     end
   end
 
+  packer_init()
 
   local packer = require("packer")
   packer.init(conf)
