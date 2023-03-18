@@ -139,14 +139,14 @@ function M.setup()
 		use { "junegunn/fzf.vim" }
 		use {
 		 "ibhagwan/fzf-lua",
-			requires = { "kyazdani42/nvim-web-devicons" },
+			requires = { "nvim-tree/nvim-web-devicons" },
 		}
 
 		-- File Explorer
 		use {
-		 "kyazdani42/nvim-tree.lua",
+		 "nvim-tree/nvim-tree.lua",
 		 requires = {
-			 "kyazdani42/nvim-web-devicons",
+			 "nvim-tree/nvim-web-devicons",
 		 },
 		 cmd = { "NvimTreeToggle", "NvimTreeClose" },
 			 config = function()
