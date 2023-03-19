@@ -12,6 +12,13 @@ function M.setup()
       -- `false` will disable the whole extension
       enable = true,
     },
+		indent = {
+			enable = true,
+			disable = {},
+		},
+		autotag = {
+			enable = true,
+		}
   }
 end
 

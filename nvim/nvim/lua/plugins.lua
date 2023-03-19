@@ -134,6 +134,13 @@ function M.setup()
 			 end,
 		}
 
+		use { 
+			"windwp/nvim-autopairs",
+			config = function()
+				require("config.autopairs").setup()
+			end,
+		}
+		use { "windwp/nvim-ts-autotag" }
 		-- FZF
 		use { "junegunn/fzf", run = "./install --all" }
 		use { "junegunn/fzf.vim" }
