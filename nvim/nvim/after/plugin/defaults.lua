@@ -21,6 +21,14 @@ opt.signcolumn = "yes" -- Always show sign column
 opt.clipboard = "unnamedplus" -- Access system clipboard
 opt.timeoutlen = 200 -- Time in milliseconds to wait for a mapped sequence to complete
 
+opt.autoindent = true
+opt.ai = true -- Auto indent
+opt.si = true -- Smart indent
+
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.textwidth = 120
 -- Highlight on yank
 vim.cmd [[
   augroup YankHighlight
