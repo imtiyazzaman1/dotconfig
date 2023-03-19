@@ -6,7 +6,6 @@ local servers = {
   jsonls = {},
   pyright = {},
   rust_analyzer = {},
-  sumneko_lua = {},
   tsserver = {},
   vimls = {},
 	jdtls = {},

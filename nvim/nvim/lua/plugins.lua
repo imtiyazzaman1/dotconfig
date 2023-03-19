@@ -36,6 +36,7 @@ function M.setup()
   end
 
   local function plugins(use)
+		use 'lewis6991/impatient.nvim'
     use 'wbthomason/packer.nvim'
 
     -- Load only when required
