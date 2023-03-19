@@ -18,7 +18,10 @@ function M.setup()
 		},
 		autotag = {
 			enable = true,
-		}
+		},
+		endwise = {
+			enable = true,
+		},
   }
 end
 

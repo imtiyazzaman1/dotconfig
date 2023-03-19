@@ -133,7 +133,6 @@ function M.setup()
 				 require("config.treesitter").setup()
 			 end,
 		}
-
 		use { 
 			"windwp/nvim-autopairs",
 			config = function()
@@ -141,6 +140,12 @@ function M.setup()
 			end,
 		}
 		use { "windwp/nvim-ts-autotag" }
+		use {
+			"RRethy/nvim-treesitter-endwise",
+			wants = "nvim-treesitter",
+			event = "InsertEnter",
+		}
+		
 		-- FZF
 		use { "junegunn/fzf", run = "./install --all" }
 		use { "junegunn/fzf.vim" }
