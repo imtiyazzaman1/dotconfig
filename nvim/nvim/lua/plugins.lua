@@ -133,18 +133,7 @@ function M.setup()
 				 require("config.treesitter").setup()
 			 end,
 		}
-		use { 
-			"windwp/nvim-autopairs",
-			config = function()
-				require("config.autopairs").setup()
-			end,
-		}
-		use { "windwp/nvim-ts-autotag" }
-		use {
-			"RRethy/nvim-treesitter-endwise",
-			wants = "nvim-treesitter",
-			event = "InsertEnter",
-		}
+		
 		
 		-- FZF
 		use { "junegunn/fzf", run = "./install --all" }
@@ -191,6 +180,33 @@ function M.setup()
 				{ "ms-jpq/coq.thirdparty", branch = "3p", module = "coq_3p" },
 			},
 			disable = false,
+		}
+
+		use { 
+			"windwp/nvim-autopairs",
+			config = function()
+				require("config.autopairs").setup()
+			end,
+		}
+		use { "windwp/nvim-ts-autotag" }
+		use {
+			"RRethy/nvim-treesitter-endwise",
+			wants = "nvim-treesitter",
+			event = "InsertEnter",
+		}
+
+		-- LSP
+		use {
+			"neovim/nvim-lspconfig",
+			event = "BufReadPre",
+			wants = { "nvim-lsp-installer", "lsp_signature.nvim" },
+			config = function()
+				require("config.lsp").setup()
+			end,
+			requires = {
+				"williamboman/nvim-lsp-installer",
+				"ray-x/lsp_signature.nvim",
+			},
 		}
 
     -- Automatically set up your configuration after cloning packer.nvim
