@@ -14,3 +14,4 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map("n", "<leader>ps", ":ASToggle<CR>", { desc = "Toggle Auto Save" })
+map("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
