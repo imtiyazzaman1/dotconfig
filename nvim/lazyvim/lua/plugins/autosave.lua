@@ -22,5 +22,7 @@ return {
       end
       return false -- can't save
     end,
+
+    debounce_delay = 100,
   },
 }
